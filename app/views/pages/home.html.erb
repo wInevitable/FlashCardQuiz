@@ -8,26 +8,56 @@
 
 </br></br>
 
+<div class='quiz'>
+	<div class='stimulus'></div>
+
+	<form class='answer-form'>
+		<input type='text'>
+		<input type='submit' value='Answer' class='response-submit'>
+	</form>
+</div>
+
 <div class='high-score'>Current High Score: <%= @high_score %></div>
 
 <script>
 	$(document).ready(function() {
+		var cards, changeCard, currentCard, finishQuiz, score;
+
 		$('.start-quiz').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
+			$('.quiz').toggle();
 
 			// Present Cards one at a Time
-			// User Answers - 3 tries
-			// Score is Calculated
-			// Next Card is presented until all have been shown
 			$.ajax({ url: '/flash_cards' }).done(function(data) {
-				debugger
-				var cards = data;
-
+				cards = data;
+				changeCard();
 			});
-
-			// View the final score and the high score
-
 		});
+
+		$('.response-submit').on('click', function(e) {
+			// TODO Handle User Answers - 3 tries
+			// TODO Calculate Score
+
+			// next card is presented until all have been shown
+			changeCard();
+		});
+
+		changeCard = function() {
+			if (cards.length) {
+				// move next card to the front
+				currentCard = cards.slice(0, 1);
+				$('.stimulus').html(currentCard.stimulus);
+			} else {
+				// cards are all gone, quiz is over
+				finishQuiz();
+			}
+		};
+
+		finishQuiz = function() {
+			// TODO View the final score and the high score
+			// If the new score is higher, replace the old high score
+			$('.quiz').toggle();
+		};
 	});
 </script>
