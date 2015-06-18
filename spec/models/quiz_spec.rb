@@ -19,6 +19,6 @@ RSpec.describe Quiz, type: :model do
   it 'should retrieve the high score' do
     quiz_one = Quiz.create!(score: 100.0, set_id: 1)
     quiz_two = Quiz.create!(score: 50.0, set_id: 1)
-    Quiz.high_score.should eq(quiz_one)
+    Quiz.high_score.should eq(100.0)
   end
 end
