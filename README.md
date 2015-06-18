@@ -16,8 +16,8 @@ A simple MVP for a Flash Card Quiz Application. Users can create flash cards and
 
 * User Accounts - :scores, :auth
 
-* Multiple Card Sets per User
+* Multiple Card Sets per User - Create Sets
 
-* Quiz History
+* Quiz History - List Quizzes (Index)
 
 <tt>Dependencies...</tt>.
