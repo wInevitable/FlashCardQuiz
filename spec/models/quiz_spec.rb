@@ -15,4 +15,10 @@ RSpec.describe Quiz, type: :model do
     it { should respond_to(:score) }
     it { should respond_to(:set_id) }
   end
+
+  it 'should retrieve the high score' do
+    quiz_one = Quiz.create!(score: 100.0, set_id: 1)
+    quiz_two = Quiz.create!(score: 50.0, set_id: 1)
+    Quiz.high_score.should eq(quiz_one)
+  end
 end
