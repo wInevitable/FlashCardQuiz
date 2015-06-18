@@ -11,7 +11,7 @@ class FlashCardsController < ApplicationController
       flash[:notice] = 'Flash Card was successfully created.'
       redirect_to root_url
     else
-      flash[:error] = 'Flash Card was not created.'
+      flash[:error] = @flash_card.errors.full_messages
       render :new, flash_card: @flash_card
     end
   end

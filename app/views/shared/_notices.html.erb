@@ -1,0 +1,23 @@
+<% if flash[:error] %>
+	<div class="errors">
+	  <% if flash[:error].is_a?(Array) %>
+	    <% flash[:error].each do |error| %>
+	      <%= error + "." %>
+	    <% end %>
+	  <% else %>
+	    <%= flash[:error] + "." %>
+	  <% end %>
+	</div>
+<% end %>
+
+<% if flash[:notice] %>
+	<div class="notices">
+	  <% if flash[:notice].is_a?(Array) %>
+	    <% flash[:notice].each do |notice| %>
+	      <%= notice + "." %>
+	    <% end %>
+	  <% else %>
+	    <%= flash[:notice] + "." %>
+	  <% end %>
+	</div>
+<% end %>
