@@ -4,13 +4,14 @@ A simple MVP for a Flash Card Quiz Application. Users can create flash cards and
 
 ### TODO
 
-* Create Flash Cards (30 minutes) - Have :stimulus/:response
+* Create Flash Cards (30 minutes) - :stimulus/:response, belongs to a :set_id
 
-* Create Quizzes (60 minutes) - Has Many Cards, :score, :attempts
+* Create Quizzes (60 minutes) - :score/:attempts, belongs to a :set_id
 
 	* Implement Incorrect and Correct Answers + Score
+	 (Add Methods on Models to Test this?)
 
-* View High Scores (30 minutes) - :high_score
+* View High Scores (30 minutes) - Query Quizzes by :score, cache result?
 
 ### Nice-To-Haves
 

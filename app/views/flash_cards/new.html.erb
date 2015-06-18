@@ -1,0 +1,13 @@
+<h1>Create a New Flash Card</h1>
+
+<form class='user-new-form' action='<%= flash_cards_url %>' method='POST'>
+	<%= form_token %>
+
+	<label for='stimulus'>Stimulus:</label>
+	<input type='text' id='stimulus' name='flash_card[stimulus]' value='<%= @flash_card.stimulus if @flash_card %>'>
+
+	<label for='response'>Response:</label>
+	<input type='text' id='response' name='flash_card[response]' value='<%= @flash_card.response if @flash_card %>'>
+
+	<input type='submit' value="Create Card">
+</form>
