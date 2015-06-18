@@ -1,4 +1,11 @@
 class FlashCardsController < ApplicationController
+  def index
+    # TODO Implement a Limit and Offset to limit the size of the query
+    # Also, Random is really really bad
+    @flash_cards = FlashCard.order("RANDOM()")
+    render json: @flash_cards
+  end
+
   def new
     @flash_card = FlashCard.new
   end
@@ -17,7 +24,7 @@ class FlashCardsController < ApplicationController
   end
 
   def show
-    @flash_card = Flash.where(id: params[:id]).first
+    @flash_card = FlashCard.where(id: params[:id]).first
     render json: @flash_card
   end
 

@@ -2,6 +2,32 @@
 
 <a href='<%= new_flash_card_url %>'>Create a New Flash Card</a>
 
-<button>Start a New Quiz</button>
+</br></br>
+
+<button class='start-quiz'>Start a New Quiz</button>
+
+</br></br>
 
 <div class='high-score'>Current High Score: <%= @high_score %></div>
+
+<script>
+	$(document).ready(function() {
+		$('.start-quiz').on('click', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+
+			// Present Cards one at a Time
+			// User Answers - 3 tries
+			// Score is Calculated
+			// Next Card is presented until all have been shown
+			$.ajax({ url: '/flash_cards' }).done(function(data) {
+				debugger
+				var cards = data;
+
+			});
+
+			// View the final score and the high score
+
+		});
+	});
+</script>
