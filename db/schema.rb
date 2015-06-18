@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618013412) do
+ActiveRecord::Schema.define(version: 20150618015117) do
 
   create_table "flash_cards", force: :cascade do |t|
     t.string   "stimulus",   null: false
@@ -22,5 +22,15 @@ ActiveRecord::Schema.define(version: 20150618013412) do
   end
 
   add_index "flash_cards", ["set_id"], name: "index_flash_cards_on_set_id"
+
+  create_table "quizzes", force: :cascade do |t|
+    t.float    "score",      default: 0.0, null: false
+    t.integer  "set_id",                   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "quizzes", ["score"], name: "index_quizzes_on_score"
+  add_index "quizzes", ["set_id"], name: "index_quizzes_on_set_id"
 
 end
